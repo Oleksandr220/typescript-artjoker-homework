@@ -1,83 +1,79 @@
 // ForEach
 
-const arr = [2, 4, 6, 5, 8, 9, 2, 1, 24];
+const arr = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 
-function forEach(arr, callback) {
-  for (let i = 0; i < arr.length; i++) {
-    callback(arr[i], i, arr);
+Array.prototype.ownForEach = function (callBack) {
+  for (let i = 0; i < this.length; i++) {
+    callBack(this[i], i, this);
   }
-}
+};
 
-forEach(arr, (value) => console.log(value));
+// arr.ownForEach((el) => console.log(el));
 
 // Map
 
-function map(array, callback) {
-  let result = [];
+Array.prototype.ownMap = function (callBack) {
+  let res = [];
 
-  for (let i = 0; i < array.length; i++) {
-    result.push(callback(array[i], i, array));
+  for (i in this) {
+    res[i] = callBack(this[i], i, this);
   }
+  return res.splice(0, this.length);
+};
 
-  return result;
-}
-
-console.log(map(arr, (value) => value * 2));
+// console.log(arr.ownMap((el) => el * 2));
 
 // Filter
 
-function filter(arr, callback) {
-  let result = [];
+Array.prototype.ownFillter = function (callBack) {
+  let res = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i], i, arr)) {
-      result.push(arr[i]);
+  for (let i = 0; i <= this.length - 1; i++) {
+    if (callBack(this[i], i, this)) {
+      res.push(this[i]);
     }
   }
 
-  return result;
-}
+  return res;
+};
+// console.log(arr.ownFillter((el) => el <= 3));
 
-console.log(filter(arr, (value) => value % 2 === 0));
+// Reduce
+
+Array.prototype.ownReduce = function (callBack, Acc) {
+  let res = Acc || 0;
+
+  for (let i = 0; i <= this.length - 1; i++) {
+    res = callBack(this[i], res);
+  }
+  return res;
+};
+// console.log(arr.ownReduce((el, acc) => el + acc, 100));
 
 // Every
 
-function every(arr, callback) {
-  for (let i = 0; i < arr.length; i++) {
-    if (!callback(arr[i], i, arr)) {
+Array.prototype.ownEvery = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    if (!callback(this[i], i, this)) {
       return false;
     }
   }
 
   return true;
-}
+};
 
-console.log(every(arr, (value) => value % 2 === 0));
+console.log(arr.ownEvery((value) => value % 2 === 0));
+// console.log(every(arr, (value) => value % 2 === 0));
 
 // Some
 
-function some(arr, callback) {
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i], i, arr)) {
-      return true;
+Array.prototype.ownSome = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      return false;
     }
   }
 
-  return false;
-}
-
-console.log(some(arr, (value) => value % 2 === 0));
-
-// Reduce
-
-function reduce(arr, callback, initial) {
-  let result = initial || 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    result = callback(result, arr[i], i, arr);
-  }
-
-  return result;
-}
-
-console.log(reduce(arr, (prev, value) => prev + value, 0));
+  return true;
+};
+// console.log(arr.ownSome((value) => value % 2 === 0));

@@ -1,24 +1,30 @@
-let arr = [2, 4, 6, 14, 8, 5, 1, 24, 17];
+let array = [2, 1, 6, 12, 18, 0, 8];
 
-const getMaxNumber = (arr) => {
-  let maxValue = arr[0];
-  for (i = 0; i < arr.length; i += 1) {
-    if (maxValue < arr[i]) {
-      maxValue = arr[i];
+const searchMaxNumberArray = (array) => {
+  if (array.length === 0) {
+    return [];
+  }
+  let maxValue = array[0];
+  for (i = 0; i < array.length; i++) {
+    if (maxValue < array[i]) {
+      maxValue = array[i];
     }
   }
   return maxValue;
 };
 
-const getMinNumber = (arr) => {
-  let minValue = arr[0];
-  for (i = 0; i < arr.length; i += 1) {
-    if (minValue > arr[i]) {
-      minValue = arr[i];
+const searchMinNumberArray = (array) => {
+  if (array.length === 0) {
+    return [];
+  }
+  let minValue = array[0];
+  for (i = 0; i < array.length; i++) {
+    if (minValue > array[i]) {
+      minValue = array[i];
     }
   }
   return minValue;
 };
 
-console.log("max Number :", getMaxNumber(arr));
-console.log("min Number :", getMinNumber(arr));
+console.log("max Number :", searchMaxNumberArray(array));
+console.log("min Number :", searchMinNumberArray(array));

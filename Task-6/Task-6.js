@@ -1,7 +1,9 @@
 function transMatrix(matrix) {
-  let num = matrix[0].length;
   let matrixTransposition = [];
-  for (let i = 0; i < num; i++) {
+  if (matrix.length === 0) {
+    return matrixTransposition;
+  }
+  for (let i = 0; i < matrix[0].length; i++) {
     matrixTransposition[i] = [];
     for (let j = 0; j < matrix.length; j++)
       matrixTransposition[i][j] = matrix[j][i];
@@ -9,11 +11,7 @@ function transMatrix(matrix) {
   return matrixTransposition;
 }
 
-const matrixA = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+const matrixA = [];
 
 console.log(transMatrix(matrixA));
 
@@ -34,4 +32,4 @@ const matrixB = [
   [-1, 1, 0],
 ];
 
-console.log(SumMatrix(matrixA, matrixB));
+// console.log(SumMatrix(matrixA, matrixB));
