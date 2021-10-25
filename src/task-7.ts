@@ -1,11 +1,10 @@
-// удоление строки
-let matrixA = [
+let matrixFirst:number[][] = [
   [4, 7, 0],
   [5, 3, 7],
   [5, 2, 2],
 ];
 
-function deleteRow(matrix) {
+function deleteRow(matrix:number[][]) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j of matrix[i]) {
       if (j == 0) {
@@ -16,18 +15,18 @@ function deleteRow(matrix) {
   }
   return matrix;
 }
-// console.log(deleteRow(matrixA));
+// console.log(deleteRow(matrixFirst));
 
 // удоление столбца
 
-function matrixRes(index, matrix) {
-  for (i = 0; i < matrix.length; i++) {
+function matrixRes(index:number, matrix:number[][]) {
+  for (let i = 0; i < matrix.length; i++) {
     matrix[i].splice(index, 1);
   }
   return matrix;
 }
 
-function deleteColumn(matrix) {
+function deleteColumn(matrix:number[][]) {
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
       if (matrix[i][j] == 0) {
@@ -39,4 +38,4 @@ function deleteColumn(matrix) {
   return matrix;
 }
 
-console.log(deleteColumn(matrixA));
+// console.log(deleteColumn(matrixFirst));

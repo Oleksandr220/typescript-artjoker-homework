@@ -1,6 +1,7 @@
-const memo = (fn) => {
-  let cache = {};
-  return (number) => {
+const memoFunction = (fn:any) => {
+    let cache: ICache = {
+  };
+  return (number:number) => {
     if (number in cache) {
       console.log("Fatching from caheche", number);
       return cache[number];
@@ -11,7 +12,7 @@ const memo = (fn) => {
     }
   };
 };
-const factorial = memo((num) => {
+const factorial = memoFunction((num:number) => {
   if (num === 0) {
     return 1;
   } else {
@@ -19,9 +20,5 @@ const factorial = memo((num) => {
   }
 });
 
-console.log(factorial(4));
-console.log(factorial(5));
-console.log(factorial(8));
-console.log(factorial(12));
-console.log(factorial(15));
-console.log(factorial(18));
+// console.log(factorial(4));
+// console.log(factorial(5));

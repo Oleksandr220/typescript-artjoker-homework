@@ -1,5 +1,5 @@
-function transMatrix(matrix) {
-  let matrixTransposition = [];
+function transMatrix(matrix:number[][]) {
+  let matrixTransposition:any[][] = [];
   if (matrix.length === 0) {
     return matrixTransposition;
   }
@@ -11,12 +11,12 @@ function transMatrix(matrix) {
   return matrixTransposition;
 }
 
-const matrixA = [];
+const matrixA:number[][] | [] = [[3,6,2], [4,2,9], [9,23,5]];
 
-console.log(transMatrix(matrixA));
+// console.log(transMatrix(matrixA));
 
-function SumMatrix(matrixA, matrixB) {
-  let matrixC = [];
+function SumMatrix(matrixA:number[][], matrixB:number[][]) {
+  let matrixC:any[][] = [];
   for (let i = 0; i < matrixA.length; i++) {
     matrixC[i] = [];
     for (let j = 0; j < matrixA.length; j++) {

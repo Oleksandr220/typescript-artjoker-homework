@@ -1,6 +1,6 @@
 // Функция для вычисления чисел Фибоначчи + Мемоизация.
 
-const makeFabianachiNumbers = (number) => {
+const makeFabianachiNumbers = (number:number):number => {
   if (number === 0) {
     return 0;
   }
@@ -11,19 +11,24 @@ const makeFabianachiNumbers = (number) => {
 };
 
 // Функция для добовления чисел Фибоначчи в масив.
-let fabianachiArray = [];
+let fabianachiArray:number[] = [];
 
-function memo(number) {
-  let cache = {};
+interface ICache  {
+  [key: string]: number[];
+}
+
+function memo(number:number) {
+  let cache: ICache = {};
   // Масив для чисел Фибоначчи.
-  return (number) => {
+  return (number:number) => {
     if (number in cache) {
       console.log("Fetching arrey from cache");
       console.log(cache[number]);
-      return fabianachiArray.push(cache[number]);
+      return fabianachiArray.push(...cache[number]);
     }
     for (let y = 0; y < number; y++) {
-      fabianachiArray.push(makeFabianachiNumbers(y));
+      const searchResult = makeFabianachiNumbers(y)
+      fabianachiArray.push(searchResult);
     }
     let result = fabianachiArray;
     cache[number] = result;
@@ -32,10 +37,7 @@ function memo(number) {
   };
 }
 
-const makeArrayFabianachi = memo();
-// makeArrayFabianachi(7);
-// makeArrayFabianachi(8);
-// makeArrayFabianachi(5);
-// makeArrayFabianachi(9);
-// makeArrayFabianachi(7);
-// makeArrayFabianachi(8);
+const makeArrayFabianachi = memo(0);
+makeArrayFabianachi(5)
+makeArrayFabianachi(7);
+makeArrayFabianachi(8);

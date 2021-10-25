@@ -1,8 +1,17 @@
 // ForEach
 
-const arr = [2, 4, 6, 5, 8, 9, 2, 1, 12];
+interface Array<T> { 
+    ownForEach(callBack: any): void,
+    ownMap(callBack: any): any[],
+    ownFillter(callBack: any): any[],
+    ownReduce(callBack: any, acc: number): number,
+    ownEvery(callBack: any): boolean,
+    ownSome(callBack: any): boolean
+}
 
-Array.prototype.ownForEach = function (callBack) {
+const arr: number[] = [2, 4, 6, 5, 8, 9, 2, 1, 12];
+
+Array.prototype.ownForEach = function (this:any, callBack:any) {
   for (let i = 0; i < this.length; i++) {
     callBack(this[i], i, this);
   }
@@ -13,9 +22,9 @@ Array.prototype.ownForEach = function (callBack) {
 // Map
 
 Array.prototype.ownMap = function (callBack) {
-  let res = [];
+  let res:number [] | [] = [];
 
-  for (i in this) {
+  for (let i in this) {
     res[i] = callBack(this[i], i, this);
   }
   return res.splice(0, this.length);
@@ -26,7 +35,7 @@ Array.prototype.ownMap = function (callBack) {
 // Filter
 
 Array.prototype.ownFillter = function (callBack) {
-  let res = [];
+  let res:string []  = [];
 
   for (let i = 0; i <= this.length - 1; i++) {
     if (callBack(this[i], i, this)) {
@@ -48,7 +57,7 @@ Array.prototype.ownReduce = function (callBack, Acc) {
   }
   return res;
 };
-// console.log(arr.ownReduce((el, acc) => el + acc, 100));
+// console.log(arr.ownReduce((el:any, acc:any) => el + acc, 100));
 
 // Every
 
@@ -62,7 +71,7 @@ Array.prototype.ownEvery = function (callback) {
   return true;
 };
 
-console.log(arr.ownEvery((value) => value % 2 === 0));
+// console.log(arr.ownEvery((value:any) => value % 2 === 0));
 // console.log(every(arr, (value) => value % 2 === 0));
 
 // Some
