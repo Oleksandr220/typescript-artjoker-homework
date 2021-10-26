@@ -1,5 +1,5 @@
 "use strict";
-// Функция для вычисления чисел Фибоначчи + Мемоизация.
+// Рекрусивная функция для вычисления чисел Фибоначчи + Мемоизация.
 const makeFabianachiNumbers = (number) => {
     if (number === 0) {
         return 0;
@@ -34,3 +34,14 @@ const makeArrayFabianachi = memo(0);
 makeArrayFabianachi(5);
 makeArrayFabianachi(7);
 makeArrayFabianachi(8);
+// Функция для вычисления чисел Фибаначи
+// function fibanachi(number:number) {
+//   const result = [0, 1];
+//   for (let i = 2; i <= number; i++) {
+//     const a = i - 1;
+//     const b = i - 2;
+//     result.push(a + b);
+//   }
+//   return result;
+// }
+// console.log(fibanachi(6));

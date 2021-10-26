@@ -1,17 +1,18 @@
 // ForEach
+type CallbackFunction = (...args: any[]) => any
 
 interface Array<T> { 
-    ownForEach(callBack: any): void,
-    ownMap(callBack: any): any[],
-    ownFillter(callBack: any): any[],
-    ownReduce(callBack: any, acc: number): number,
-    ownEvery(callBack: any): boolean,
-    ownSome(callBack: any): boolean
+    ownForEach(callBack:CallbackFunction): void,
+    ownMap(callBack: CallbackFunction): any[],
+    ownFillter(callBack: CallbackFunction): any[],
+    ownReduce(callBack: CallbackFunction, acc: number): number,
+    ownEvery(callBack: CallbackFunction): boolean,
+    ownSome(callBack: CallbackFunction): boolean
 }
 
 const arr: number[] = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 
-Array.prototype.ownForEach = function (this:any, callBack:any) {
+Array.prototype.ownForEach = function (this:any, callBack) {
   for (let i = 0; i < this.length; i++) {
     callBack(this[i], i, this);
   }
@@ -49,8 +50,8 @@ Array.prototype.ownFillter = function (callBack) {
 
 // Reduce
 
-Array.prototype.ownReduce = function (callBack, Acc) {
-  let res = Acc || 0;
+Array.prototype.ownReduce = function (callBack, acc) {
+  let res = acc || 0;
 
   for (let i = 0; i <= this.length - 1; i++) {
     res = callBack(this[i], res);

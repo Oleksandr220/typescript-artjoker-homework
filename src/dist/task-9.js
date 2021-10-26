@@ -1,5 +1,4 @@
 "use strict";
-// ForEach
 const arr = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 Array.prototype.ownForEach = function (callBack) {
     for (let i = 0; i < this.length; i++) {
@@ -28,8 +27,8 @@ Array.prototype.ownFillter = function (callBack) {
 };
 // console.log(arr.ownFillter((el) => el <= 3));
 // Reduce
-Array.prototype.ownReduce = function (callBack, Acc) {
-    let res = Acc || 0;
+Array.prototype.ownReduce = function (callBack, acc) {
+    let res = acc || 0;
     for (let i = 0; i <= this.length - 1; i++) {
         res = callBack(this[i], res);
     }
