@@ -1,10 +1,10 @@
 // ForEach
-type CallbackFunction = (...args: any[]) => any
+type CallbackFunction = (...args: any) => any
 
 interface Array<T> { 
-    ownForEach(callBack:CallbackFunction): void,
-    ownMap(callBack: CallbackFunction): any[],
-    ownFillter(callBack: CallbackFunction): any[],
+    ownForEach(this:number[] | string[],callBack:CallbackFunction): void,
+    ownMap(callBack: CallbackFunction): number[],
+    ownFillter(callBack: CallbackFunction): number[],
     ownReduce(callBack: CallbackFunction, acc: number): number,
     ownEvery(callBack: CallbackFunction): boolean,
     ownSome(callBack: CallbackFunction): boolean
@@ -12,8 +12,8 @@ interface Array<T> {
 
 const arr: number[] = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 
-Array.prototype.ownForEach = function (this:any, callBack) {
-  for (let i = 0; i < this.length; i++) {
+Array.prototype.ownForEach = function (callBack) {
+  for (let i:number = 0; i < this.length; i++) {
     callBack(this[i], i, this);
   }
 };
@@ -36,9 +36,9 @@ Array.prototype.ownMap = function (callBack) {
 // Filter
 
 Array.prototype.ownFillter = function (callBack) {
-  let res:string []  = [];
+  let res:number []  = [];
 
-  for (let i = 0; i <= this.length - 1; i++) {
+  for (let i:number = 0; i <= this.length - 1; i++) {
     if (callBack(this[i], i, this)) {
       res.push(this[i]);
     }
@@ -53,7 +53,7 @@ Array.prototype.ownFillter = function (callBack) {
 Array.prototype.ownReduce = function (callBack, acc) {
   let res = acc || 0;
 
-  for (let i = 0; i <= this.length - 1; i++) {
+  for (let i:number = 0; i <= this.length - 1; i++) {
     res = callBack(this[i], res);
   }
   return res;
@@ -63,7 +63,7 @@ Array.prototype.ownReduce = function (callBack, acc) {
 // Every
 
 Array.prototype.ownEvery = function (callback) {
-  for (let i = 0; i < this.length; i++) {
+  for (let i:number = 0; i < this.length; i++) {
     if (!callback(this[i], i, this)) {
       return false;
     }
@@ -78,7 +78,7 @@ Array.prototype.ownEvery = function (callback) {
 // Some
 
 Array.prototype.ownSome = function (callback) {
-  for (let i = 0; i < this.length; i++) {
+  for (let i:number = 0; i < this.length; i++) {
     if (callback(this[i], i, this)) {
       return false;
     }

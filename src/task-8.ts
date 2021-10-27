@@ -1,8 +1,8 @@
 // bind
 
 interface Function {
-    customBind(context:any, ...args:number[]):any,
-    customCall(context:any, ...args:number[]):any,
+    customBind(context:object, ...args:number[]):void,
+    customCall(context:object, ...args:number[]):void,
 }
 Function.prototype.customBind = function (context, ...args) {
   let sym = Symbol("func");
@@ -20,12 +20,12 @@ function searchResult(this:any) {
   return this.a + this.b + this.c;
 }
 
-let res = searchResult.customBind(0);
+let res = searchResult.customBind(this);
 // console.log(res);
 
 // call
 
-Function.prototype.customCall = function (context:any, ...args:number[]) {
+Function.prototype.customCall = function (context, ...args:number[]) {
   let sym = Symbol("func");
   let obj = {
     ...context,

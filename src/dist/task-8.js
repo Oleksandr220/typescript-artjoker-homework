@@ -10,7 +10,7 @@ Function.prototype.customBind = function (context, ...args) {
 function searchResult() {
     return this.a + this.b + this.c;
 }
-let res = searchResult.customBind(0);
+let res = searchResult.customBind(this);
 // console.log(res);
 // call
 Function.prototype.customCall = function (context, ...args) {

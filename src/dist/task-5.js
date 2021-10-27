@@ -6,11 +6,9 @@ const memoFunction = (fn) => {
             console.log("Fatching from caheche", number);
             return cache[number];
         }
-        else {
-            let result = fn(number);
-            cache[number] = result;
-            return result;
-        }
+        let result = fn(number);
+        cache[number] = result;
+        return result;
     };
 };
 const factorial = memoFunction((num) => {

@@ -1,18 +1,22 @@
-const memoFunction = (fn:any) => {
-    let cache: ICache = {
+type CallbackFunc = (number: number) => number
+interface ICacheNumber  {
+  [key: string]: number;
+}
+
+const memoFunction = (fn: CallbackFunc) => {
+    let cache: ICacheNumber = {
   };
   return (number:number) => {
     if (number in cache) {
       console.log("Fatching from caheche", number);
       return cache[number];
-    } else {
+    }  
       let result = fn(number);
       cache[number] = result;
       return result;
-    }
   };
 };
-const factorial = memoFunction((num:number) => {
+const factorial = memoFunction((num) => {
   if (num === 0) {
     return 1;
   } else {
