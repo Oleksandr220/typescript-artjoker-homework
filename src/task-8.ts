@@ -16,8 +16,8 @@ Function.prototype.customBind = function (context, ...args) {
   };
 };
 
-function searchResult(this:any) {
-  return this.a + this.b + this.c;
+function searchResult(obj) {
+  return obj.a + obj.b + obj.c;
 }
 
 let res = searchResult.customBind(this);
