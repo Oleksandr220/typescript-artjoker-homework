@@ -16,7 +16,7 @@ Function.prototype.customBind = function (context, ...args) {
   };
 };
 
-function searchResult(obj) {
+function searchResult(obj:{a:number, b: number, c:number}) {
   return obj.a + obj.b + obj.c;
 }
 
