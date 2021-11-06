@@ -14,16 +14,16 @@ class Tringle {
 
     perimetr = () => {
         if (this.sideA > 0 && this.sideB > 0 && this.sideC > 0) {
-            const valuePerimetr: number = this.sideA + this.sideB + this.sideC
-          return valuePerimetr;
+            const Perimetr: number = this.sideA + this.sideB + this.sideC
+          return Perimetr;
         }
       return undefined;
   };
 
     square = () => {
         if (this.sideA > 0 && this.height > 0 && this.sideA !== this.height) {
-            const valueSquare:number =  0.5 * this.sideA * this.height
-          return valueSquare;
+            const Square:number =  0.5 * this.sideA * this.height
+          return Square;
         }
       return undefined;
   };
@@ -40,16 +40,16 @@ constructor(name: string, sideA: number, sideB: number) {
 }
       perimetr = () => {
         if (this.sideA > 0 && this.sideB > 0) {
-            const valuePerimetr:number = this.sideA * 2 + this.sideB * 2
-          return valuePerimetr
+            const Perimetr:number = this.sideA * 2 + this.sideB * 2
+          return Perimetr
         }
         return undefined;
   };
 
     square = () => {
         if (this.sideA > 0 && this.sideB > 0 && this.sideA !== this.sideB) {
-            const valueSquare:number = this.sideA * this.sideB
-            return valueSquare
+            const Square:number = this.sideA * this.sideB
+            return Square
         }
       return undefined;
   };
@@ -65,8 +65,8 @@ class Circle {
 
     square = () => {
         if (this.radius > 0) {
-            const valueSquare:number = Math.PI * this.radius * this.radius
-            return valueSquare
+            const Square:number = Math.PI * this.radius * this.radius
+            return Square
         }
       return undefined;
   };
