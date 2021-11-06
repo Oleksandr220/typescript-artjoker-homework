@@ -24,5 +24,3 @@ const searchMinNumberArray = (array) => {
     }
     return minValue;
 };
-// console.log("max Number :", searchMaxNumberArray(array));
-// console.log("min Number :", searchMinNumberArray(array));

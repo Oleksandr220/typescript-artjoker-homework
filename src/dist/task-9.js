@@ -1,13 +1,10 @@
 "use strict";
-// ForEach
 const arr = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 Array.prototype.ownForEach = function (callBack) {
     for (let i = 0; i < this.length; i++) {
         callBack(this[i], i);
     }
 };
-// arr.ownForEach((el) => console.log(el));
-// Map
 Array.prototype.ownMap = function (callBack) {
     let res = [];
     for (let i = 0; i <= this.length - 1; i++) {
@@ -15,8 +12,6 @@ Array.prototype.ownMap = function (callBack) {
     }
     return res.splice(0, this.length);
 };
-// console.log(arr.ownMap((el) => el * 2));
-// Filter
 Array.prototype.ownFillter = function (callBack) {
     let res = [];
     for (let i = 0; i <= this.length - 1; i++) {
@@ -26,8 +21,6 @@ Array.prototype.ownFillter = function (callBack) {
     }
     return res;
 };
-// console.log(arr.ownFillter((el) => el <= 3));
-// Reduce
 Array.prototype.ownReduce = function (callBack, acc) {
     let res = acc || 0;
     for (let i = 0; i <= this.length - 1; i++) {
@@ -35,8 +28,6 @@ Array.prototype.ownReduce = function (callBack, acc) {
     }
     return res;
 };
-// console.log(arr.ownReduce((el, acc) => el + acc, 100));
-// Every
 Array.prototype.ownEvery = function (callback) {
     for (let i = 0; i < this.length; i++) {
         if (!callback(this[i], i)) {
@@ -45,9 +36,6 @@ Array.prototype.ownEvery = function (callback) {
     }
     return true;
 };
-// console.log(arr.ownEvery((value) => value % 2 === 0));
-// console.log(every(arr, (value) => value % 2 === 0));
-// Some
 Array.prototype.ownSome = function (callback) {
     for (let i = 0; i < this.length; i++) {
         if (callback(this[i], i)) {
@@ -56,4 +44,3 @@ Array.prototype.ownSome = function (callback) {
     }
     return true;
 };
-// console.log(arr.ownSome((value) => value % 2 === 0));

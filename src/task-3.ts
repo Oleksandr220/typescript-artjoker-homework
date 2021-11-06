@@ -1,11 +1,11 @@
-let array:number[] = [2, 1, 6, 12, 18, 0, 8];
+let array: number[] = [2, 1, 6, 12, 18, 0, 8];
 
-const searchMaxNumberArray = (array:number[]):number | [] => {
+const searchMaxNumberArray = (array: number[]): number | [] => {
   if (array.length === 0) {
     return [];
   }
   let maxValue = array[0];
-  for (let i = 0; i < array.length; i++) {
+  for (let i: number = 0; i < array.length; i++) {
     if (maxValue < array[i]) {
       maxValue = array[i];
     }
@@ -13,18 +13,15 @@ const searchMaxNumberArray = (array:number[]):number | [] => {
   return maxValue;
 };
 
-const searchMinNumberArray = (array:number[]):number | [] => {
+const searchMinNumberArray = (array: number[]): number | [] => {
   if (array.length === 0) {
     return [];
   }
   let minValue = array[0];
-  for (let i = 0; i < array.length; i++) {
+  for (let i: number = 0; i < array.length; i++) {
     if (minValue > array[i]) {
       minValue = array[i];
     }
   }
   return minValue;
 };
-
-// console.log("max Number :", searchMaxNumberArray(array));
-// console.log("min Number :", searchMinNumberArray(array));

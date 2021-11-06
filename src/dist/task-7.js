@@ -15,8 +15,6 @@ function deleteRow(matrix) {
     }
     return matrix;
 }
-// console.log(deleteRow(matrixFirst));
-// удоление столбца
 function matrixRes(index, matrix) {
     for (let i = 0; i < matrix.length; i++) {
         matrix[i].splice(index, 1);
@@ -34,4 +32,3 @@ function deleteColumn(matrix) {
     }
     return matrix;
 }
-// console.log(deleteColumn(matrixFirst));

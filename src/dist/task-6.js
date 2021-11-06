@@ -12,7 +12,6 @@ function transMatrix(matrix) {
     return matrixTransposition;
 }
 const matrixA = [[3, 6, 2], [4, 2, 9], [9, 23, 5]];
-// console.log(transMatrix(matrixA));
 function SumMatrix(matrixA, matrixB) {
     let matrixC = [];
     for (let i = 0; i < matrixA.length; i++) {
@@ -28,4 +27,3 @@ const matrixB = [
     [1, 3, 3],
     [-1, 1, 0],
 ];
-// console.log(SumMatrix(matrixA, matrixB));

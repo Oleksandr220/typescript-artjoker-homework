@@ -1,4 +1,4 @@
-let matrixFirst:number[][] = [
+let matrixFirst: number[][] = [
   [4, 7, 0],
   [5, 3, 7],
   [5, 2, 2],
@@ -15,9 +15,6 @@ function deleteRow(matrix:number[][]) {
   }
   return matrix;
 }
-// console.log(deleteRow(matrixFirst));
-
-// удоление столбца
 
 function matrixRes(index:number, matrix:number[][]) {
   for (let i = 0; i < matrix.length; i++) {
@@ -37,5 +34,3 @@ function deleteColumn(matrix:number[][]) {
   }
   return matrix;
 }
-
-// console.log(deleteColumn(matrixFirst));

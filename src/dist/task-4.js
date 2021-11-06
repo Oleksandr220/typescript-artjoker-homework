@@ -7,7 +7,6 @@ const transformToBinary = (number) => {
     }
     return binaryNumber.split("").reverse().join("");
 };
-// console.log(transformToBinary(18));
 const transformToDec = (curStr) => {
     let decNumber = 0;
     let curStrLen = curStr.length - 1;
@@ -18,4 +17,3 @@ const transformToDec = (curStr) => {
     }
     return decNumber;
 };
-// console.log(transformToDec("00000010010"));
