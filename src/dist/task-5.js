@@ -1,5 +1,5 @@
 "use strict";
-const memoFunction = (fn) => {
+const memoizedNumber = (fn) => {
     let cache = {};
     return (number) => {
         if (number in cache) {
@@ -10,11 +10,11 @@ const memoFunction = (fn) => {
         return result;
     };
 };
-const factorial = memoFunction((num) => {
-    if (num === 0) {
+const factorial = memoizedNumber((number) => {
+    if (number === 0) {
         return 1;
     }
     else {
-        return num * factorial(num - 1);
+        return number * factorial(number - 1);
     }
 });

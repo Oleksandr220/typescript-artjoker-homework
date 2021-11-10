@@ -1,18 +1,18 @@
 "use strict";
 const arr = [2, 4, 6, 5, 8, 9, 2, 1, 12];
-Array.prototype.ownForEach = function (callBack) {
+Array.prototype.getForEach = function (callBack) {
     for (let i = 0; i < this.length; i++) {
         callBack(this[i], i);
     }
 };
-Array.prototype.ownMap = function (callBack) {
+Array.prototype.getMap = function (callBack) {
     let res = [];
     for (let i = 0; i <= this.length - 1; i++) {
         res[i] = callBack(this[i], i);
     }
     return res.splice(0, this.length);
 };
-Array.prototype.ownFillter = function (callBack) {
+Array.prototype.getFillter = function (callBack) {
     let res = [];
     for (let i = 0; i <= this.length - 1; i++) {
         if (callBack(this[i], i)) {
@@ -21,14 +21,14 @@ Array.prototype.ownFillter = function (callBack) {
     }
     return res;
 };
-Array.prototype.ownReduce = function (callBack, acc) {
+Array.prototype.getReduce = function (callBack, acc) {
     let res = acc || 0;
     for (let i = 0; i <= this.length - 1; i++) {
         res = callBack(this[i], res);
     }
     return res;
 };
-Array.prototype.ownEvery = function (callback) {
+Array.prototype.getEvery = function (callback) {
     for (let i = 0; i < this.length; i++) {
         if (!callback(this[i], i)) {
             return false;
@@ -36,7 +36,7 @@ Array.prototype.ownEvery = function (callback) {
     }
     return true;
 };
-Array.prototype.ownSome = function (callback) {
+Array.prototype.getSome = function (callback) {
     for (let i = 0; i < this.length; i++) {
         if (callback(this[i], i)) {
             return false;

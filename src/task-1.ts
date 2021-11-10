@@ -14,7 +14,7 @@ interface ICache  {
   [key: string]: number[];
 }
 
-function memo(number: number) {
+function memoNumber(number: number) {
   let cache: ICache = {};
   return (number: number) => {
     if (number in cache) {
@@ -30,5 +30,5 @@ function memo(number: number) {
   };
 }
 
-const makeArrayFabianachi = memo(0);
+const makeArrayFabianachi = memoNumber(0);
 makeArrayFabianachi(5)

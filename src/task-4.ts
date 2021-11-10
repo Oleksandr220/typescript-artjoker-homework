@@ -8,14 +8,14 @@ const transformToBinary = (number: number) => {
   return binaryNumber.split("").reverse().join("");
 };
 
-const transformToDec = (curStr:string) => {
-  let decNumber: number = 0;
-  let curStrLen = curStr.length - 1;
+const transformToDecimal = (currentNumber:string) => {
+  let decimalNumber: number = 0;
+  let currentStringLength = currentNumber.length - 1;
   let bit = 1;
-  for (let i: number = curStrLen; i > -1; i--) {
-    decNumber += curStr[i] === "1" ? bit : 0;
+  for (let i: number = currentStringLength; i > -1; i--) {
+    decimalNumber += currentNumber[i] === "1" ? bit : 0;
 
     bit <<= 1;
   }
-  return decNumber;
+  return decimalNumber;
 };

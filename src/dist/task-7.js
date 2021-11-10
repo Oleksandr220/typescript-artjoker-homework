@@ -1,9 +1,4 @@
 "use strict";
-let matrixFirst = [
-    [4, 7, 0],
-    [5, 3, 7],
-    [5, 2, 2],
-];
 function deleteRow(matrix) {
     for (let i = 0; i < matrix.length; i++) {
         for (let j of matrix[i]) {
@@ -15,7 +10,7 @@ function deleteRow(matrix) {
     }
     return matrix;
 }
-function matrixRes(index, matrix) {
+function getResultingMatrix(index, matrix) {
     for (let i = 0; i < matrix.length; i++) {
         matrix[i].splice(index, 1);
     }
@@ -26,7 +21,7 @@ function deleteColumn(matrix) {
         for (let j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j] == 0) {
                 let index = matrix[i].indexOf(matrix[i][j]);
-                matrixRes(index, matrix);
+                getResultingMatrix(index, matrix);
             }
         }
     }

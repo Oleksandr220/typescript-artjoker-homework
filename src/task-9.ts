@@ -1,22 +1,22 @@
 type CallbackFunction = (el: number, i: number) => number;
 interface Array<T> { 
-  ownForEach(this: number[],callBack:CallbackFunction): void,
-  ownMap(this: number[], callBack: CallbackFunction): number[],
-  ownFillter(this: number[], callBack: CallbackFunction): number[],
-  ownReduce(this: number[], callBack:CallbackFunction, acc: number): number,
-  ownEvery(this: number[], callBack: CallbackFunction): boolean,
-  ownSome(this: number[], callBack: CallbackFunction): boolean
+  getForEach(this: number[],callBack:CallbackFunction): void,
+  getMap(this: number[], callBack: CallbackFunction): number[],
+  getFillter(this: number[], callBack: CallbackFunction): number[],
+  getReduce(this: number[], callBack:CallbackFunction, acc: number): number,
+  getEvery(this: number[], callBack: CallbackFunction): boolean,
+  getSome(this: number[], callBack: CallbackFunction): boolean
 }
 
 const arr: number[] = [2, 4, 6, 5, 8, 9, 2, 1, 12];
 
-Array.prototype.ownForEach = function (callBack) {
+Array.prototype.getForEach = function (callBack) {
   for (let i:number = 0; i < this.length; i++) {
     callBack(this[i], i);
   }
 };
 
-Array.prototype.ownMap = function (callBack) {
+Array.prototype.getMap = function (callBack) {
   let res: number [] | [] = [];
 
   for (let i: number = 0; i <= this.length - 1; i++) {
@@ -25,7 +25,7 @@ Array.prototype.ownMap = function (callBack) {
   return res.splice(0, this.length);
 };
 
-Array.prototype.ownFillter = function (callBack) {
+Array.prototype.getFillter = function (callBack) {
   let res: number []  = [];
 
   for (let i: number = 0; i <= this.length - 1; i++) {
@@ -37,7 +37,7 @@ Array.prototype.ownFillter = function (callBack) {
   return res;
 };
 
-Array.prototype.ownReduce = function (callBack, acc) {
+Array.prototype.getReduce = function (callBack, acc) {
   let res = acc || 0;
 
   for (let i: number = 0; i <= this.length - 1; i++) {
@@ -46,7 +46,7 @@ Array.prototype.ownReduce = function (callBack, acc) {
   return res;
 };
 
-Array.prototype.ownEvery = function (callback) {
+Array.prototype.getEvery = function (callback) {
   for (let i: number = 0; i < this.length; i++) {
     if (!callback(this[i], i)) {
       return false;
@@ -56,7 +56,7 @@ Array.prototype.ownEvery = function (callback) {
   return true;
 };
 
-Array.prototype.ownSome = function (callback) {
+Array.prototype.getSome = function (callback) {
   for (let i: number = 0; i < this.length; i++) {
     if (callback(this[i], i)) {
       return false;

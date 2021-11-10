@@ -3,7 +3,7 @@ interface ICacheNumber  {
   [key: string]: number;
 }
 
-const memoFunction = (fn: CallbackFunc) => {
+const memoizedNumber = (fn: CallbackFunc) => {
     let cache: ICacheNumber = {
   };
   return (number:number) => {
@@ -15,10 +15,10 @@ const memoFunction = (fn: CallbackFunc) => {
       return result;
   };
 };
-const factorial = memoFunction((num) => {
-  if (num === 0) {
+const factorial = memoizedNumber((number) => {
+  if (number === 0) {
     return 1;
   } else {
-    return num * factorial(num - 1);
+    return number * factorial(number - 1);
   }
 });

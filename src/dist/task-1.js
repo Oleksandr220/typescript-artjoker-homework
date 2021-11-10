@@ -9,7 +9,7 @@ const makeFabianachiNumbers = (number) => {
     return makeFabianachiNumbers(number - 1) + makeFabianachiNumbers(number - 2);
 };
 let fabianachiArray = [];
-function memo(number) {
+function memoNumber(number) {
     let cache = {};
     return (number) => {
         if (number in cache) {
@@ -24,5 +24,5 @@ function memo(number) {
         return (fabianachiArray = []);
     };
 }
-const makeArrayFabianachi = memo(0);
+const makeArrayFabianachi = memoNumber(0);
 makeArrayFabianachi(5);

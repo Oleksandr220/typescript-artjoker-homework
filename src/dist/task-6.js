@@ -1,5 +1,5 @@
 "use strict";
-function transMatrix(matrix) {
+function getTranspositionsMatrix(matrix) {
     let matrixTransposition = [];
     if (matrix.length === 0) {
         return matrixTransposition;
@@ -11,19 +11,13 @@ function transMatrix(matrix) {
     }
     return matrixTransposition;
 }
-const matrixA = [[3, 6, 2], [4, 2, 9], [9, 23, 5]];
-function SumMatrix(matrixA, matrixB) {
-    let matrixC = [];
+function getSumMatrix(matrixA, matrixB) {
+    let matrixResulting = [];
     for (let i = 0; i < matrixA.length; i++) {
-        matrixC[i] = [];
+        matrixResulting[i] = [];
         for (let j = 0; j < matrixA.length; j++) {
-            matrixC[i][j] = matrixA[i][j] + matrixB[i][j];
+            matrixResulting[i][j] = matrixA[i][j] + matrixB[i][j];
         }
     }
-    return matrixC;
+    return matrixResulting;
 }
-const matrixB = [
-    [4, 5, 6],
-    [1, 3, 3],
-    [-1, 1, 0],
-];

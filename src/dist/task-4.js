@@ -7,13 +7,13 @@ const transformToBinary = (number) => {
     }
     return binaryNumber.split("").reverse().join("");
 };
-const transformToDec = (curStr) => {
-    let decNumber = 0;
-    let curStrLen = curStr.length - 1;
+const transformToDecimal = (currentNumber) => {
+    let decimalNumber = 0;
+    let currentStringLength = currentNumber.length - 1;
     let bit = 1;
-    for (let i = curStrLen; i > -1; i--) {
-        decNumber += curStr[i] === "1" ? bit : 0;
+    for (let i = currentStringLength; i > -1; i--) {
+        decimalNumber += currentNumber[i] === "1" ? bit : 0;
         bit <<= 1;
     }
-    return decNumber;
+    return decimalNumber;
 };

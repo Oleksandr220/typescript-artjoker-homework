@@ -1,26 +1,26 @@
 "use strict";
 let array = [2, 1, 6, 12, 18, 0, 8];
-const searchMaxNumberArray = (array) => {
+const getMaxNumber = (array) => {
     if (array.length === 0) {
         return [];
     }
-    let maxValue = array[0];
+    let maxNumberOfArray = array[0];
     for (let i = 0; i < array.length; i++) {
-        if (maxValue < array[i]) {
-            maxValue = array[i];
+        if (maxNumberOfArray < array[i]) {
+            maxNumberOfArray = array[i];
         }
     }
-    return maxValue;
+    return maxNumberOfArray;
 };
-const searchMinNumberArray = (array) => {
+const getMinNumber = (array) => {
     if (array.length === 0) {
         return [];
     }
-    let minValue = array[0];
+    let minNumberOfArray = array[0];
     for (let i = 0; i < array.length; i++) {
-        if (minValue > array[i]) {
-            minValue = array[i];
+        if (minNumberOfArray > array[i]) {
+            minNumberOfArray = array[i];
         }
     }
-    return minValue;
+    return minNumberOfArray;
 };

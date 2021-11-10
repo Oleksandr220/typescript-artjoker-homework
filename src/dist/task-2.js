@@ -1,21 +1,11 @@
 "use strict";
 class Tringle {
-    constructor(name, sideA, sideB, sideC, height) {
-        this.perimetr = () => {
-            if (this.sideA > 0 && this.sideB > 0 && this.sideC > 0) {
-                const Perimetr = this.sideA + this.sideB + this.sideC;
-                return Perimetr;
-            }
-            return undefined;
-        };
-        this.square = () => {
-            if (this.sideA > 0 && this.height > 0 && this.sideA !== this.height) {
-                const Square = 0.5 * this.sideA * this.height;
-                return Square;
-            }
-            return undefined;
-        };
-        this.name = name;
+    constructor(sideA, sideB, sideC, height) {
+        this.getPerimetr = () => this.sideA + this.sideB + this.sideC;
+        this.getSquare = () => 0.5 * this.sideA * this.height;
+        if (sideA <= 0 && sideB <= 0 && sideC <= 0 && sideA !== height) {
+            throw new Error('Wrong data');
+        }
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
@@ -24,36 +14,22 @@ class Tringle {
 }
 ;
 class Rectangle {
-    constructor(name, sideA, sideB) {
-        this.perimetr = () => {
-            if (this.sideA > 0 && this.sideB > 0) {
-                const Perimetr = this.sideA * 2 + this.sideB * 2;
-                return Perimetr;
-            }
-            return undefined;
-        };
-        this.square = () => {
-            if (this.sideA > 0 && this.sideB > 0 && this.sideA !== this.sideB) {
-                const Square = this.sideA * this.sideB;
-                return Square;
-            }
-            return undefined;
-        };
-        this.name = name;
+    constructor(sideA, sideB) {
+        this.getPerimetr = () => this.sideA * 2 + this.sideB * 2;
+        this.getSquare = () => this.sideA * this.sideB;
+        if (sideA <= 0 && sideB <= 0 && sideA !== sideB) {
+            throw new Error('Wrong data');
+        }
         this.sideA = sideA;
         this.sideB = sideB;
     }
 }
 class Circle {
-    constructor(name, radius) {
-        this.square = () => {
-            if (this.radius > 0) {
-                const Square = Math.PI * this.radius * this.radius;
-                return Square;
-            }
-            return undefined;
-        };
-        this.name = name;
+    constructor(radius) {
+        this.getSquare = () => Math.PI * this.radius * this.radius;
+        if (radius <= 0) {
+            throw new Error('Wrong data');
+        }
         this.radius = radius;
     }
 }
